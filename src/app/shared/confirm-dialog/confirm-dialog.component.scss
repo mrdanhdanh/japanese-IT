@@ -25,16 +25,16 @@
   padding: 5px;
 }
 .confirm-dialog p {
-  padding: 5px ;
+  padding: 10px ;
 }
 
 /* Style for the action buttons */
 .dialog-actions {
   display: flex;
-  gap: 10px;
+  gap: 7px;
   text-align: right; /* Align buttons to the right */
   margin-left: auto; /* Push buttons to the right */
-  padding: 5px;
+  padding: 10px;
 }
 
 .dialog-actions button {

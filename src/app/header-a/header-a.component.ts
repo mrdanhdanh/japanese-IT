@@ -37,11 +37,14 @@ export class HeaderAComponent {
   }
 
   onOptionChange(event: Event) {
-    const selectedValue = (event.target as HTMLSelectElement).textContent?.trim() || 'none';
-
+    const selectEl = event.target as HTMLSelectElement;
+    const selectedValue = selectEl.value;
+    const selectedText = selectEl.options[selectEl.selectedIndex].text;
+    
+    // nếu chọn "none" thì có message khác
     const message = selectedValue === 'none'
       ? 'App đang mở, bạn có muốn đóng không?'
-      : `Bạn có chắc là sẽ chuyển sang app: ${selectedValue}?`;
+      : `Bạn có chắc là sẽ chuyển sang app: <b>${selectedText}</b>?`;
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {

@@ -1,0 +1,9 @@
+
+<div class="confirm-dialog">
+    <div class="dialog-head">{{ data.title }}</div> <!-- Added header for dialog -->
+  <p>{{ data.message }}</p>
+  <div class="dialog-actions">
+    <button mat-button (click)="onConfirm()">Yes</button>
+    <button mat-button (click)="onCancel()">No</button>
+  </div>
+</div>

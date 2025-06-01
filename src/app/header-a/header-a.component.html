@@ -1,0 +1,26 @@
+<nav class="navbar">
+    <div class="container">
+      <!-- Button 1 with droplist -->
+      <div class="dropdown">
+        <button class="btn btn-nav" (click)="toggleDropdown()">Menu</button>
+        <ul class="dropdown-menu" [class.show]="isDropdownOpen">
+          <li><a href="#" class="dropdown-item">Link 1</a></li>
+          <li><a href="#" class="dropdown-item">Link 2</a></li>
+          <li><a href="#" class="dropdown-item">Link 3</a></li>
+        </ul>
+      </div>
+      <!-- Button 2 -->
+      <button class="btn btn-nav">Button 2</button>
+
+      <!-- Button 3 -->
+      <button class="btn btn-nav">Button 3</button>
+
+      <!-- Selection box -->
+      <select class="form-select" (change)="onOptionChange($event)">
+        <option value="none">---</option>
+        <option value="flashcard">Flash Card</option>
+        <option value="Body2">Body2</option>
+        <option value="Body3">Body3</option>
+      </select>
+    </div>
+  </nav>

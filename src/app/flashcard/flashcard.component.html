@@ -1,1 +1,18 @@
-<p>flashcard works!</p>
+<p>Flash</p>
+
+<div class="flashcard-center">
+  <div class="flashcard-scene">
+    <div class="flashcard-card" [class.is-flipped]="isFlipped" (click)="flipCard()">
+      <div class="flashcard-face flashcard-front kanji-box">
+        <div class="kanji-text">{{ kanji }}</div>
+      </div>
+      <div class="flashcard-face flashcard-back kanji-box">
+        <div class="kanji-text">{{ kanji }}</div><br>
+        <div>
+          <div><b>Nghĩa:</b> {{ meaning }}</div>
+          <div><b>Ghi chú:</b> {{ note }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

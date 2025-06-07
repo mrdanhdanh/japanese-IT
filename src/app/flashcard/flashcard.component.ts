@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { SharedDataService, ITN5Entry } from '../shared/shared-data.service';
 import { Subscription } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-flashcard',
-  imports: [CommonModule, MatButtonModule],
+  imports: [CommonModule, MatButtonModule,
+    FormsModule],
   templateUrl: './flashcard.component.html',
   styleUrls: ['./flashcard.component.css']
 })
@@ -18,6 +21,8 @@ export class FlashcardComponent implements OnDestroy {
   note: string = '';
   keys: string[] = [];
   currentKey: string = '';
+  inputValue: string = '';
+  message: string = '';
   private dataLoadedSub: Subscription;
 
   constructor(private sharedDataService: SharedDataService) {
@@ -60,9 +65,33 @@ export class FlashcardComponent implements OnDestroy {
     this.meaning = entries[randomKey].Meaning;
     this.note = entries[randomKey].Note;
     this.isFlipped = false;
+    this.currentKey = randomKey;
+    this.inputValue = '';
+    this.message = '';
+  }
+
+  submitAnswer() {
+    if (this.inputValue.trim() === this.name.trim()
+        || this.inputValue.trim() === this.kanji.trim()) {
+      this.message = 'Đúng!';
+      setTimeout(() => {
+        this.nextCard();
+      }, 800);
+    } else {
+      this.message = 'Sai!';
+    }
   }
 
   get kanjiFontSize(): string {
-    return this.kanji && this.kanji.length > 10 ? '36px' : '50px';
+    return this.kanji && this.kanji.length > 6 ? '36px' : '50px';
+  }
+
+  speakKanji(event: Event) {
+    event.stopPropagation();
+    if ('speechSynthesis' in window) {
+      const utter = new SpeechSynthesisUtterance(this.kanji);
+      utter.lang = 'ja-JP';
+      window.speechSynthesis.speak(utter);
+    }
   }
 }

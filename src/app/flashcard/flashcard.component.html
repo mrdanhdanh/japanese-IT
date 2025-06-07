@@ -2,12 +2,16 @@
   <div class="flashcard-scene">
     <div class="flashcard-card" [class.is-flipped]="isFlipped" (click)="flipCard()">
       <div class="flashcard-face flashcard-front kanji-box">
-        <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ kanji }}</div>
+        <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">
+          {{ kanji }}
+          
+        </div>
       </div>
       <div class="flashcard-face flashcard-back kanji-box">
         <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ kanji }}</div><br>
         <div>
           <div><b>Hira, Eng:</b> {{ name }}</div>
+          <div><b>Hán Việt:</b> {{ meaning }}</div>
           <div><b>Ghi chú:</b> {{ note }}</div>
         </div>
       </div>
@@ -16,7 +20,18 @@
 </div>
 <div class="cont-center">
     <div class="flashcard-controls">
-        <button class="flashcard-button" (click)="flipCard()">Flip</button>
-        <button class="flashcard-button" (click)="nextCard()">Next</button>
+      <button class="flashcard-button" (click)="flipCard()">Flip</button>
+      <button class="flashcard-button" (click)="nextCard()">Next</button>
+      <button class="speaker-btn" (click)="speakKanji($event)">
+        <i class="bi bi-volume-up"></i>
+      </button>
     </div>
+    
+</div>
+<div class="cont-center">
+  <div>
+    <input type="text" class="form-control" [(ngModel)]="inputValue" placeholder="Gõ đáp án" (keydown.enter)="submitAnswer()" />
+  <button class="flashcard-button" (click)="submitAnswer()">Submit</button>
+  <div *ngIf="message" style="margin-top: 8px; font-weight: bold;">{{ message }}</div>
+</div>
 </div>

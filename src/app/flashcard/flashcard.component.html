@@ -1,13 +1,11 @@
-<p>Flash</p>
-
 <div class="flashcard-center">
   <div class="flashcard-scene">
     <div class="flashcard-card" [class.is-flipped]="isFlipped" (click)="flipCard()">
       <div class="flashcard-face flashcard-front kanji-box">
-        <div class="kanji-text">{{ kanji }}</div>
+        <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ kanji }}</div>
       </div>
       <div class="flashcard-face flashcard-back kanji-box">
-        <div class="kanji-text">{{ kanji }}</div><br>
+        <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ kanji }}</div><br>
         <div>
           <div><b>Hira, Eng:</b> {{ name }}</div>
           <div><b>Ghi chú:</b> {{ note }}</div>
@@ -15,4 +13,10 @@
       </div>
     </div>
   </div>
+</div>
+<div class="cont-center">
+    <div class="flashcard-controls">
+        <button class="flashcard-button" (click)="flipCard()">Flip</button>
+        <button class="flashcard-button" (click)="nextCard()">Next</button>
+    </div>
 </div>

@@ -32,8 +32,9 @@
 }
 
 .flashcard-card {
-  width: 100%;
-  height: 100%;
+  padding: 2.5%;
+  width: 95%;
+  height: 95%;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.3s cubic-bezier(0.4,0.2,0.2,1);
@@ -42,6 +43,7 @@
 
 .flashcard-card.is-flipped {
   transform: rotateY(180deg);
+  left: 5%;
 }
 
 .flashcard-face {

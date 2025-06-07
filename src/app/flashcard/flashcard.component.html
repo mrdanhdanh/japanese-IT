@@ -31,7 +31,7 @@
 <div class="cont-center">
   <div>
     <input type="text" class="form-control" [(ngModel)]="inputValue" placeholder="Gõ đáp án" (keydown.enter)="submitAnswer()" />
-  <button class="flashcard-button" (click)="submitAnswer()">Submit</button>
-  <div *ngIf="message" style="margin-top: 8px; font-weight: bold;">{{ message }}</div>
-</div>
+    <button class="flashcard-button" (click)="submitAnswer()">Kiểm Tra</button>
+    <div *ngIf="message" style="margin-top: 8px; font-weight: bold;">{{ message }}</div>
+  </div>
 </div>

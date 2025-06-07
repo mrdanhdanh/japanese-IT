@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class FlashcardComponent implements OnDestroy {
   isFlipped: boolean = false;
   kanji: string = '';
+  name: string = '';
   meaning: string = '';
   note: string = '';
   private dataLoadedSub: Subscription;
@@ -23,6 +24,7 @@ export class FlashcardComponent implements OnDestroy {
         const firstKey = Object.keys(entries)[0];
         if (firstKey) {
           this.kanji = entries[firstKey].Kanji;
+          this.name = entries[firstKey].Name;
           this.meaning = entries[firstKey].Meaning;
           this.note = entries[firstKey].Note;
         }

@@ -3,6 +3,7 @@ export interface ITN5Entry {
   Kanji: string;
   Meaning: string;
   Note: string;
+  Type: string;
 }
 
 import { Injectable } from '@angular/core';

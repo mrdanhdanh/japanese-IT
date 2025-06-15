@@ -13,7 +13,7 @@
     <button class="flashcard-button" (click)="nextCard()">Next</button>
     <button class="speaker-btn" (click)="speakKanji($event)">
       <i class="bi bi-volume-up"></i>
-    </button>
+    </button><br>
     <div *ngIf="message" 
          [ngStyle]="{ 'color': message === 'Sai!' ? 'red' : 'green', 'margin-top': '8px', 'font-weight': 'bold', 'display': 'inline-block' }">
       {{ message }}

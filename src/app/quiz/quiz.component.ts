@@ -24,6 +24,7 @@ export class QuizComponent implements OnDestroy {
   currentKey: string = '';
   inputValue: string = '';
   message: string = '';
+  type: string = '';
   options: string[] = [];
   selectedOption: string = '';
   private dataLoadedSub: Subscription;
@@ -46,9 +47,10 @@ export class QuizComponent implements OnDestroy {
     this.name = entries[randomKey].Name;
     this.meaning = entries[randomKey].Meaning;
     this.note = entries[randomKey].Note;
+    this.type = entries[randomKey].Type;
     this.currentKey = randomKey;
-    // Generate 3 random wrong options
-    const wrongNames = this.keys.filter(k => k !== randomKey)
+    // Generate 3 random wrong options with the same Type
+    const wrongNames = this.keys.filter(k => k !== randomKey && entries[k].Type === this.type)
       .map(k => entries[k].Name);
     const shuffled = this.shuffleArray([
       this.name,

@@ -1,0 +1,42 @@
+<div class="cont-center">
+  <div class="flashcard-controls">
+    Chọn đáp án đúng
+    <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ kanji }}</div>
+    <div style="margin: 16px 0;">
+      <label *ngFor="let opt of options" style="display:block; margin-bottom:8px; cursor:pointer;">
+        <input type="radio" name="quizOption" [value]="opt" [(ngModel)]="selectedOption" />
+        {{ opt }}
+      </label>
+    </div>
+    <button class="flashcard-button" (click)="submitAnswer()">Kiểm Tra</button>
+    <button class="flashcard-button" (click)="toggleCard()">{{ showCard ? 'Hide' : 'Show' }}</button>
+    <button class="flashcard-button" (click)="nextCard()">Next</button>
+    <button class="speaker-btn" (click)="speakKanji($event)">
+      <i class="bi bi-volume-up"></i>
+    </button>
+    <div *ngIf="message" 
+         [ngStyle]="{ 'color': message === 'Sai!' ? 'red' : 'green', 'margin-top': '8px', 'font-weight': 'bold', 'display': 'inline-block' }">
+      {{ message }}
+    </div>
+  </div>
+</div>
+<div class="flashcard-center" [ngClass]="{ 'hide-controls': !showCard }">
+  <div class="flashcard-scene">
+    <div class="flashcard-card" *ngIf="showCard" [class.is-flipped]="isFlipped" (click)="flipCard()">
+      <div class="flashcard-face flashcard-front kanji-box">
+        <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">
+          {{ kanji }}
+          
+        </div>
+      </div>
+      <div class="flashcard-face flashcard-back kanji-box">
+        <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ kanji }}</div><br>
+        <div>
+          <div><b>Hira, Eng:</b> {{ name }}</div>
+          <div><b>Hán Việt:</b> {{ meaning }}</div>
+          <div><b>Ghi chú:</b> {{ note }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

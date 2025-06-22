@@ -36,28 +36,7 @@
   min-width: 0;
   min-height: 0;
 }
-.big-btn {
-  width: 100%;
-  height: 100%;
-  font-size: 1.2rem;
-  background: #1976d2;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.big-label {
-    width: 100%;
-    height: 100%;
-    font-size: 1.2rem;
-    background: #f5f5f5;
-    color: #333;
-    border: none;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 @media (max-width: 900px) {
   .main-grid {

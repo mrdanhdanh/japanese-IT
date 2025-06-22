@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="comp.type">
+  <button *ngSwitchCase="'button'" class="big-btn"
+>
+    {{ comp.displayName }}
+  </button>
+  <input *ngSwitchCase="'input'" class="big-input" type="text"
+    [placeholder]="comp.displayName" />
+  <label *ngSwitchCase="'label'" class="big-label">
+    {{ comp.displayName }}
+  </label>
+</ng-container>

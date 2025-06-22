@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BaseitemComponent } from '../_component/baseitem/baseitem.component';
 
 @Component({
   selector: 'app-gridflex-control',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BaseitemComponent],
   templateUrl: './gridflex-control.component.html',
   styleUrls: ['./gridflex-control.component.css']
 })

@@ -1,0 +1,36 @@
+<p>GridFlex Example</p>
+<!-- 2 rows, 3 columns grid -->
+<div class="main-grid">
+  <ng-container *ngFor="let row of [0,1]; let rowIdx = index">
+    <ng-container *ngFor="let col of [0,1,2]; let colIdx = index">
+      <div class="cell" [ngClass]="getCellClasses(rowIdx, colIdx)">
+        <div class="nested-grid">
+          <ng-container *ngFor="let comp of gridComponents">
+            <ng-container *ngIf="rowIdx === comp.gridrow && colIdx === comp.gridcol">
+                <button  *ngIf="comp.type === 'button'" class="big-btn"
+                    [ngStyle]="{
+                        'grid-column': comp.col + ' / span ' + comp.width,
+                        'grid-row': comp.row + ' / span ' + comp.height
+                    }">
+                {{ comp.displayName }}
+                </button>
+                <input *ngIf="comp.type === 'input'" class="big-input" type="text"
+                    [ngStyle]="{
+                        'grid-column': comp.col + ' / span ' + comp.width,
+                        'grid-row': comp.row + ' / span ' + comp.height
+                    }"
+                    [placeholder]="comp.displayName" />
+                <label *ngIf="comp.type === 'label'" class="big-label"
+                    [ngStyle]="{
+                        'grid-column': comp.col + ' / span ' + comp.width,
+                        'grid-row': comp.row + ' / span ' + comp.height
+                    }">
+                    {{ comp.displayName }}
+                </label>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,76 @@
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  gap: 0px;
+  width: 100%;
+  height: 100%;
+}
+.cell {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 4px;
+  background: #fff;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.cell.even-cell {
+  background: #e0e0e0;
+}
+.cell.odd-cell {
+  background: #c8ffcd;
+}
+.nested-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 100%;
+  height: 100%;
+  gap: 0px;
+}
+.nested-cell {
+  background: rgba(0,0,0,0.05);
+  border-radius: 1px;
+  min-width: 0;
+  min-height: 0;
+}
+.big-btn {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.big-label {
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    background: #f5f5f5;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+  }
+}
+@media (max-width: 600px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 200px);
+    }
+    .cell-0-2, .cell-1-0, .cell-1-2 {
+        display: none !important;
+    }
+}

@@ -58,10 +58,6 @@
   user-select: none;
 }
 
-.flashcard-front {
-  /* mặt trước */
-}
-
 .flashcard-back {
   transform: rotateY(180deg);
   /* mặt sau */

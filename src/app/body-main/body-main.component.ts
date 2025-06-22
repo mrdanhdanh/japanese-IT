@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolve
 import { DynamicLoaderService } from '../shared/dynamic-loader.service';
 import { FlashcardComponent } from '../flashcard/flashcard.component';
 import { QuizComponent } from '../quiz/quiz.component';
+import { GridflexControlComponent } from '../gridflex-control/gridflex-control.component';
 
 @Component({
   selector: 'app-body-main',
@@ -38,7 +39,7 @@ export class BodyMainComponent implements OnInit {
     const components: { [key: string]: any } = {
       'flashcard': FlashcardComponent,
       'quiz': QuizComponent,
-      // 'Body3': require('../body-003/body-003.component').Body003Component,
+      'gridflex': GridflexControlComponent,
     };
     return components[name] || null;
   }

@@ -24,7 +24,8 @@ export class QuizComponent implements OnDestroy {
   currentKey: string = '';
   inputValue: string = '';
   message: string = '';
-  type: string = '';
+  type1: string = '';
+  type2: string = '';
   options: string[] = [];
   selectedOption: string = '';
   private dataLoadedSub: Subscription;
@@ -47,10 +48,11 @@ export class QuizComponent implements OnDestroy {
     this.name = entries[randomKey].Name;
     this.meaning = entries[randomKey].Meaning;
     this.note = entries[randomKey].Note;
-    this.type = entries[randomKey].Type;
+    this.type1 = entries[randomKey].Type1;
+    this.type2 = entries[randomKey].Type2;
     this.currentKey = randomKey;
     // Generate 3 random wrong options with the same Type
-    const wrongNames = this.keys.filter(k => k !== randomKey && entries[k].Type === this.type)
+    const wrongNames = this.keys.filter(k => k !== randomKey && entries[k].Type1 === this.type1 && entries[k].Type2 === this.type2)
       .map(k => entries[k].Name);
     const shuffled = this.shuffleArray([
       this.name,
@@ -134,5 +136,9 @@ export class QuizComponent implements OnDestroy {
     if (!this.showCard) {
       this.isFlipped = false;
     }
+  }
+
+  get displayKanji(): string {
+    return this.kanji && this.kanji.trim() ? this.kanji : this.meaning;
   }
 }

@@ -1,7 +1,7 @@
 <div class="cont-center">
   <div class="flashcard-controls">
     Chọn đáp án đúng
-    <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ kanji }}</div>
+    <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ displayKanji }}</div>
     <div style="margin: 16px 0;">
       <label *ngFor="let opt of options" style="display:block; margin-bottom:8px; cursor:pointer;">
         <input type="radio" name="quizOption" [value]="opt" [(ngModel)]="selectedOption" />
@@ -25,12 +25,12 @@
     <div class="flashcard-card" *ngIf="showCard" [class.is-flipped]="isFlipped" (click)="flipCard()">
       <div class="flashcard-face flashcard-front kanji-box">
         <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">
-          {{ kanji }}
+          {{ displayKanji }}
           
         </div>
       </div>
       <div class="flashcard-face flashcard-back kanji-box">
-        <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ kanji }}</div><br>
+        <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ displayKanji }}</div><br>
         <div>
           <div><b>Hira, Eng:</b> {{ name }}</div>
           <div><b>Hán Việt:</b> {{ meaning }}</div>

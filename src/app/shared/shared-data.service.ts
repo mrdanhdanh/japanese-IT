@@ -3,7 +3,8 @@ export interface ITN5Entry {
   Kanji: string;
   Meaning: string;
   Note: string;
-  Type: string;
+  Type1: string;
+  Type2: string;
 }
 
 import { Injectable } from '@angular/core';
@@ -24,7 +25,7 @@ export class SharedDataService {
 
   private async loadITN5Data() {
     try {
-      const entries = await firstValueFrom(this.http.get<ITN5Entry[]>('data/it-n5.json'));
+      const entries = await firstValueFrom(this.http.get<ITN5Entry[]>('data/n5.json'));
       this.data[this.dataname] = {};
       entries.forEach((entry, idx) => {
         this.data[this.dataname][idx] = entry;

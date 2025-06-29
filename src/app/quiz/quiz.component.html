@@ -3,7 +3,7 @@
     Chọn đáp án đúng
     <div class="kanji-text" [ngStyle]="{ 'font-size': kanjiFontSize }">{{ displayKanji }}</div>
     <div style="margin: 16px 0;">
-      <label *ngFor="let opt of options" style="display:block; margin-bottom:8px; cursor:pointer;">
+      <label *ngFor="let opt of options" class="quiz-radio-label">
         <input type="radio" name="quizOption" [value]="opt" [(ngModel)]="selectedOption" />
         {{ opt }}
       </label>

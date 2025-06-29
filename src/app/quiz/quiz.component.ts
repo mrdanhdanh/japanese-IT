@@ -105,6 +105,7 @@ export class QuizComponent implements OnDestroy {
     this.isFlipped = false;
     this.inputValue = '';
     this.message = '';
+    this.showCard = false;
   }
 
   submitAnswer() {

@@ -137,3 +137,27 @@
   pointer-events: none;
   transition: height 0.3s, opacity 0.3s;
 }
+
+.quiz-radio-label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 12px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.quiz-radio-label:has(input[type="radio"]:checked) {
+  background-color: #97ff8b;
+  border-color: #5cb85c;
+}
+
+.quiz-radio-label input[type="radio"]:checked + span {
+  border-radius: 4px;
+  background-color: #97ff8b; /* Màu nền khi được chọn */
+}
+
+.quiz-radio-label input[type="radio"] {
+  margin-right: 8px;
+}
